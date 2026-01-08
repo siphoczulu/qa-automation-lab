@@ -1,0 +1,24 @@
+{
+  "name": "qa-automation-lab",
+  "version": "1.0.0",
+  "description": "Goal: Become job-ready in QA Automation/SDET by building proof projects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/siphoczulu/qa-automation-lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/siphoczulu/qa-automation-lab/issues"
+  },
+  "homepage": "https://github.com/siphoczulu/qa-automation-lab#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0"
+  }
+}
