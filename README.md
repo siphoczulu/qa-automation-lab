@@ -8,11 +8,18 @@ Goal: Become job-ready in QA Automation/SDET by building proof projects.
 - GitHub Actions (CI)
 
 ## January 2026 Targets
-### Week 1 (Jan 7–Jan 11)
-- [ ] Install Playwright and run the starter test locally
-- [ ] Write 1–3 UI tests (basic navigation + assertions)
-- [ ] Create a Postman collection (5 requests with assertions)
-- [ ] Add GitHub Actions to run tests on push (first CI green run)
+### Week 1 - Foundation (Completed Jan 8)
+- [x] Install Playwright and run tests locally
+- [x] Write first UI test (TodoMVC)
+- [x] Write first API test (JSONPlaceholder)
+- [x] Add GitHub Actions CI and get first green run
+
+### Week 2 — Coverage + Structure (Starts Jan 12)
+
+- [ ] Add UI test #2 (toggle complete OR delete)
+- [ ] Add Playwright config (playwright.config.ts)
+- [ ] Add API negative test
+- [ ] Improve reporting (HTML report artifact review)
 
 ### Proof I will ship
 - Green CI run screenshot or badge
