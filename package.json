@@ -3,9 +3,13 @@
   "version": "1.0.0",
   "description": "Goal: Become job-ready in QA Automation/SDET by building proof projects.",
   "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+ "scripts": {
+  "test": "playwright test",
+  "test:ui": "playwright test tests/todo.spec.ts",
+  "test:api": "playwright test tests/api-jsonplaceholder.spec.ts",
+  "test:headed": "playwright test --headed",
+  "test:report": "playwright show-report"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/siphoczulu/qa-automation-lab.git"
@@ -19,6 +23,7 @@
   },
   "homepage": "https://github.com/siphoczulu/qa-automation-lab#readme",
   "devDependencies": {
-    "@playwright/test": "^1.57.0"
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^25.0.6"
   }
 }
