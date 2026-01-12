@@ -19,3 +19,21 @@ test('can add a todo item', async ({ page }) => {
   const firstTodo = page.locator('.todo-list li').first();
   await expect(firstTodo).toContainText('Learn Playwright');
 });
+
+test('can mark a todo item as completed', async ({ page }) => {
+  // Arrange
+  await page.goto('https://demo.playwright.dev/todomvc/');
+
+  // Add a todo first (setup)
+  const todoInput = page.getByPlaceholder('What needs to be done?');
+  await todoInput.fill('Buy milk');
+  await todoInput.press('Enter');
+
+  const firstTodo = page.locator('.todo-list li').first();
+
+  // Act: click the checkbox to mark completed
+  await firstTodo.locator('input.toggle').check();
+
+  // Assert: the <li> gets a "completed" class
+  await expect(firstTodo).toHaveClass(/completed/);
+});
