@@ -13,3 +13,13 @@ test('GET /posts/1 returns correct data', async ({ request }) => {
   const body = await response.json();
   expect(body.id).toBe(1);
 });
+
+test('GET /posts/999999 returns 404', async ({ request }) => {
+  // Act: ask for a resource that should not exist
+  const response = await request.get(
+    'https://jsonplaceholder.typicode.com/posts/999999'
+  );
+
+  // Assert: the API should respond honestly
+  expect(response.status()).toBe(404);
+});
