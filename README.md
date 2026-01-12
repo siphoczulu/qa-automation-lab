@@ -16,8 +16,8 @@ Goal: Become job-ready in QA Automation/SDET by building proof projects.
 
 ### Week 2 — Coverage + Structure (Starts Jan 12)
 
-- [ ] Add UI test #2 (toggle complete OR delete)
-- [ ] Add Playwright config (playwright.config.ts)
+- [x] Add UI test #2 (toggle complete OR delete)
+- [x] Add Playwright config (playwright.config.ts)
 - [ ] Add API negative test
 - [ ] Improve reporting (HTML report artifact review)
 

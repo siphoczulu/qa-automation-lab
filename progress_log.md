@@ -27,3 +27,29 @@
 - Add Playwright config file + HTML report artifact review
 - Add 1 more UI test (toggle complete or delete todo)
 - Add API negative test (404 case)
+
+## Jan 12, 2026 — UI Coverage + Config Solidified ✅
+
+### What I shipped
+- Added a second UI test to verify marking a todo item as completed
+- Introduced `playwright.config.ts` to standardize test behavior
+- Added proper npm scripts (`npm test`, `test:ui`, `test:api`, `test:headed`)
+- Verified Playwright HTML report generation
+- Confirmed GitHub Actions CI remains green after changes
+
+### Proof
+- Local run: 3 tests passing (2 UI + 1 API)
+- GitHub Actions workflow run: **GREEN**
+- Commits:
+  - `test(ui): add todo completion test`
+  - `chore: add Playwright config`
+  - `chore: add test scripts`
+
+### Lesson learned
+- UI tests are more about asserting **state changes** than text.
+- Centralizing config removes friction and makes CI behavior predictable.
+
+### Next targets
+- Add API negative test (404 case)
+- Improve selector robustness in UI tests
+- Minor README update to reflect completed foundation work
