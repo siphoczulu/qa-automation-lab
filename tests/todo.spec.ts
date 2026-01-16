@@ -26,14 +26,17 @@ test('can mark a todo item as completed', async ({ page }) => {
 
   // Add a todo first (setup)
   const todoInput = page.getByPlaceholder('What needs to be done?');
-  await todoInput.fill('Buy milk');
+  await todoInput.fill('Learn Playwright');
   await todoInput.press('Enter');
 
-  const firstTodo = page.locator('.todo-list li').first();
+  const todoItem = page.locator('.todo-list li', { hasText: 'Learn Playwright' });
+  await expect(todoItem).toBeVisible();
+
 
   // Act: click the checkbox to mark completed
-  await firstTodo.locator('input.toggle').check();
+  await todoItem.locator('input.toggle').check();
 
   // Assert: the <li> gets a "completed" class
-  await expect(firstTodo).toHaveClass(/completed/);
+  await expect(todoItem).toHaveClass(/completed/);
+  await expect(todoItem.locator('input.toggle')).toBeChecked();
 });

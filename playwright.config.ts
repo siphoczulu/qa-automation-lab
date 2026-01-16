@@ -27,7 +27,7 @@ export default defineConfig({
     // Useful artifacts only when something fails
     screenshot: 'only-on-failure',
     video: 'retain-on-failure',
-    trace: 'retain-on-failure',
+    trace: 'on-first-retry',
 
     // Default for stability
     actionTimeout: 10_000,
@@ -42,6 +42,6 @@ export default defineConfig({
     },
   ],
 
-  // Optional: keep outputs in predictable folders
+  // Optional: to keep outputs in predictable folders
   outputDir: 'test-results',
 });
