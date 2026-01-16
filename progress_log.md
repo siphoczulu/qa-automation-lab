@@ -53,3 +53,33 @@
 - Add API negative test (404 case)
 - Improve selector robustness in UI tests
 - Minor README update to reflect completed foundation work
+
+## Jan 16, 2026 — Test Stability & CI Hardening ✅
+
+### What I shipped
+- Refactored UI tests to use more stable, intention-based selectors
+- Improved checkbox interaction using semantic actions (check)
+- Tuned Playwright config for reliability:
+- CI-only retries
+- Controlled worker count in CI
+- Traces, screenshots, and videos retained only on failure
+- Verified local runs + CI pipeline after refactor
+
+### Proof
+- Local run: 4 tests passing (UI happy path + UI state change + API positive + API negative)
+- GitHub Actions workflow: GREEN
+- Commits:
+  - chore: refine Playwright config for stability
+  - test(ui): stabilize todo completion assertions
+
+### Lesson learned
+- Reliable tests are about intent, not DOM structure.
+- Good automation isn’t just writing tests, it’s configuring how they fail and how you debug them.
+- CI-first thinking prevents flaky, untrusted test suites.
+
+### Next targets
+- Add one realistic UI scenario:
+  - delete a todo or
+  - filter Active / Completed todos
+- Introduce shared setup (beforeEach) to reduce repetition
+- Keep commit history small and intentional
