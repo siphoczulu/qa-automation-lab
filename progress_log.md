@@ -83,3 +83,26 @@
   - filter Active / Completed todos
 - Introduce shared setup (beforeEach) to reduce repetition
 - Keep commit history small and intentional
+
+## Jan 17, 2026 — UI Scenarios + Test Refactor ✅
+
+### What I shipped
+- Refactored TodoMVC UI tests using `beforeEach` and a reusable helper
+- Added delete-todo UI scenario (hover + destroy button)
+- Improved test readability and reduced duplication
+
+### Proof
+- Local run: 3 UI tests passing
+- GitHub Actions workflow: **GREEN**
+- Commit:
+  - `test(ui): add delete todo scenario and refactor setup`
+
+### Lesson learned
+- UI tests should read like user stories, not scripts
+- Refactoring test setup makes suites easier to extend and maintain
+- Hover-only actions are common in real apps and must be handled explicitly
+
+### Next targets
+- Add Active / Completed filter UI tests
+- Introduce `data-testid` selectors and compare stability
+- Begin grouping tests by feature (describe blocks)
