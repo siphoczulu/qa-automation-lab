@@ -106,3 +106,35 @@
 - Add Active / Completed filter UI tests
 - Introduce `data-testid` selectors and compare stability
 - Begin grouping tests by feature (describe blocks)
+
+## Jan 21, 2026 — Repo Ownership & Fundamentals Deep Dive ✅
+
+### What I shipped
+- Fully reviewed and understood the structure of my QA Automation repo
+- Verified all UI and API tests pass locally (npm test)
+- Confirmed CI is stable and green
+- Clarified the role of every major file:
+  - package.json
+  - package-lock.json
+  - playwright.config.ts
+  - tests/*.spec.ts
+  - test-results/ vs playwright-report/
+
+### Proof
+- Local run: 5 tests passing (UI + API)
+- CI: GREEN on GitHub Actions
+- No code changes required — understanding-focused session
+
+### Lessons learned
+- npm test runs Playwright, which auto-discovers all .spec.ts files
+- CI uses npm ci to guarantee deterministic, reproducible installs
+package-lock.json is critical for consistency across machines
+- test-results/ contains raw artifacts (traces, screenshots, videos)
+- playwright-report/ is the human-readable HTML report
+- Flaky tests are usually caused by selectors, timing, state leakage, or environment differences — not “randomness”
+
+### Next targets
+- Improve selector strategy (getByRole, getByTestId)
+- Add richer API assertions (headers, schema-level checks)
+- Introduce a light Page Object pattern for UI tests
+- Continue building confidence explaining the repo end-to-end
