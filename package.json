@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Goal: Become job-ready in QA Automation/SDET by building proof projects.",
   "main": "index.js",
+  "setup": "npm ci && npx playwright install",
  "scripts": {
   "test": "playwright test",
   "test:ui": "playwright test tests/todo.spec.ts",

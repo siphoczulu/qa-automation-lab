@@ -1,3 +1,12 @@
+/**
+ * TodoMVC UI regression tests
+ *
+ * Purpose:
+ * - Validate core user flows (add, complete, delete)
+ * - Act as smoke + regression coverage for the app
+ *
+ * These tests are intentionally small and readable.
+ */
 import { test, expect, type Page } from '@playwright/test';
 
 /**
@@ -15,7 +24,6 @@ test.beforeEach(async ({ page }) => {
 
 /**
  * Helper: add a todo item through the UI.
- * Why? Reuse. So we don't repeat the same 3 lines in every test.
  */
 async function addTodo(page: Page, text: string) {
   const todoInput = page.getByPlaceholder('What needs to be done?');
@@ -29,7 +37,7 @@ async function addTodo(page: Page, text: string) {
  * - user adds a todo
  * - user sees it in the list
  */
-test('can add a todo item', async ({ page }) => {
+test('Given an empty list, when a user adds a todo, then it appears in the list', async ({ page }) => {
   // Act
   await addTodo(page, 'Learn Playwright');
 
@@ -44,7 +52,7 @@ test('can add a todo item', async ({ page }) => {
  * - user marks it as completed
  * - UI reflects completed state
  */
-test('can mark a todo item as completed', async ({ page }) => {
+test('Given an existing todo, when a user marks it complete, then it shows as completed', async ({ page }) => {
   // Arrange
   await addTodo(page, 'Learn Playwright');
 
@@ -66,7 +74,7 @@ test('can mark a todo item as completed', async ({ page }) => {
  * - user deletes it
  * - it disappears from the list
  */
-test('can delete a todo item', async ({ page }) => {
+test('Given an existing todo, when a user deletes it, then it is removed from the list', async ({ page }) => {
   // Arrange
   await addTodo(page, 'Learn Playwright');
 
