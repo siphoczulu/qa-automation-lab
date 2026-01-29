@@ -138,3 +138,20 @@ package-lock.json is critical for consistency across machines
 - Add richer API assertions (headers, schema-level checks)
 - Introduce a light Page Object pattern for UI tests
 - Continue building confidence explaining the repo end-to-end
+
+## Jan 28, 2026 — Environment Recovery ✅
+
+### What I shipped
+- Repaired Playwright UI runtime by reinstalling required browser binaries
+
+### Proof
+- Local run: 5 passed
+- UI + API tests both green again
+
+### Lesson learned
+- If API tests pass but UI tests fail instantly with “Executable doesn’t exist”, it’s a browser install/cache issue — fix with npx playwright install.
+
+### Next targets
+- Add one more UI assertion (filter counts / active/completed)
+- Add API schema-ish assertion (check required fields types)
+- Keep CI green
