@@ -18,8 +18,10 @@ import { test, expect, type Page } from '@playwright/test';
  */
 
 test.beforeEach(async ({ page }) => {
-  // Arrange: open the app for every test
-  await page.goto('https://demo.playwright.dev/todomvc/');
+// Arrange: open the app for every test
+  await page.goto('');
+   // Wait until the app is actually ready (input exists + visible)
+  await expect(page.locator('input.new-todo')).toBeVisible();
 });
 
 /**
