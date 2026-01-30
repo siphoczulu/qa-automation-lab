@@ -172,3 +172,24 @@ package-lock.json is critical for consistency across machines
 - npm test
 - Add 1 new UI assertion (filters or footer count)
 - Push + confirm CI stays green
+
+## Jan 30, 2026 — Config Hardening (baseURL) ✅
+
+### What I shipped
+- Added baseURL to Playwright config (supports switching environments via env var)
+- Refactored UI tests to use page.goto('/') instead of hardcoding full URLs
+- Fixed flaky UI tests caused by incorrect baseURL + page.goto('/') usage
+
+### Proof
+- Local run: npm test passing
+- CI: GitHub Actions run GREEN
+
+### Lesson learned
+- Centralizing URLs in playwright.config.ts makes tests easier to maintain and lets you run the same suite against different environments (staging/prod) without rewriting tests.
+- page.goto('/') navigates to the domain root, not the app path
+- When using baseURL, page.goto('') means “go exactly to baseURL”
+
+### Next targets
+- Add one UI assertion that checks the footer counters / filters (All / Active / Completed)
+- Add one stronger API “schema-ish” assertion (required keys + types)
+- Keep CI green
