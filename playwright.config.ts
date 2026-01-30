@@ -21,8 +21,8 @@ export default defineConfig({
   reporter: [['list'], ['html', { open: 'never' }]],
 
   use: {
-    // Base URL is optional (I’ll still use full URL in tests for now)
-    // baseURL: 'https://demo.playwright.dev/todomvc/',
+    // All tests run against this base URL
+    baseURL: process.env.BASE_URL || 'https://demo.playwright.dev/todomvc/',
 
     // Useful artifacts only when something fails
     screenshot: 'only-on-failure',
