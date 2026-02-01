@@ -193,3 +193,34 @@ package-lock.json is critical for consistency across machines
 - Add one UI assertion that checks the footer counters / filters (All / Active / Completed)
 - Add one stronger API “schema-ish” assertion (required keys + types)
 - Keep CI green
+
+## Feb 1, 2026 — Repo Deep Dive + Stronger API Coverage ✅
+
+### What I shipped
+- Explained the full Playwright test flow end-to-end (config → tests → report → CI)
+- Gained clarity on package.json:
+  - how npm scripts work
+  - why npm test runs Playwright
+  - difference between npm install vs npm ci
+- Reviewed and interpreted the Playwright HTML report
+- Added stronger API test coverage with schema-style assertions:
+  - validated required fields and types for /posts/1
+  - kept negative test for 404 behavior
+- Kept CI green after changes
+
+### Proof
+- Local run: all UI + API tests passing
+- GitHub Actions: GREEN
+- New commit:
+  - test(api): add schema-style assertions for post payload
+
+### Lesson learned
+- API tests validate contracts and rules, not just status codes
+- package.json is the control center for scripts, dependencies, and reproducible environments
+- UI tests and API tests cover different layers and work best together
+- HTML reports + artifacts (screenshots/videos) are critical for debugging failures
+
+### Next targets
+- Practice explaining API vs UI test coverage out loud (interview-style)
+- Add one more UI assertion that validates derived state (filters or counts)
+- Keep daily QA reps short, focused, and proof-driven
