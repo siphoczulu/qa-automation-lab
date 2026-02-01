@@ -1,16 +1,22 @@
 import { test, expect } from '@playwright/test';
 
-test('GET /posts/1 returns correct data', async ({ request }) => {
-  // Arrange: send a request to the API
-  const response = await request.get(
-    'https://jsonplaceholder.typicode.com/posts/1'
+test('GET /posts/1 returns a valid post payload', async ({ request }) => {
+  const res = await request.get('https://jsonplaceholder.typicode.com/posts/1');
+  expect(res.status()).toBe(200);
+
+  const body = await res.json();
+
+  // "schema-ish" checks (types + required keys)
+  expect(body).toEqual(
+    expect.objectContaining({
+      userId: expect.any(Number),
+      id: expect.any(Number),
+      title: expect.any(String),
+      body: expect.any(String),
+    })
   );
 
-  // Assert: status code is OK
-  expect(response.status()).toBe(200);
-
-  // Assert: response body contains expected data
-  const body = await response.json();
+  // specific sanity check
   expect(body.id).toBe(1);
 });
 
