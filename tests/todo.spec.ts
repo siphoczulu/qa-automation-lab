@@ -46,6 +46,9 @@ test('Given an empty list, when a user adds a todo, then it appears in the list'
   // Assert: verify the UI shows the item we added
   const todoItem = page.locator('.todo-list li', { hasText: 'Learn Playwright' });
   await expect(todoItem).toBeVisible();
+  // Assert (extra): verify the counter shows 1 item left
+  const counter = page.locator('.todo-count');
+  await expect(counter).toHaveText('1 item left');
 });
 
 /**
