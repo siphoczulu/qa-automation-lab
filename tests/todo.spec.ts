@@ -94,3 +94,43 @@ test('Given an existing todo, when a user deletes it, then it is removed from th
   // Assert: the item should no longer exist in the DOM
   await expect(todoItem).toHaveCount(0);
 });
+
+/**
+ * User story:
+ * - user adds two todos
+ * - user completes one
+ * - user filters Active, Completed, All and sees correct items
+ */
+test('Given mixed todos, when a user filters Active/Completed/All, then only matching items are shown', async ({ page }) => {
+  // Arrange
+  await addTodo(page, 'Learn Playwright');
+  await addTodo(page, 'Ship QA reps');
+
+  const learnItem = page.locator('.todo-list li', { hasText: 'Learn Playwright' });
+  const shipItem = page.locator('.todo-list li', { hasText: 'Ship QA reps' });
+
+  await learnItem.locator('input.toggle').check();
+
+  // Act + Assert: Active filter shows only incomplete items
+  await page.getByRole('link', { name: 'Active' }).click();
+  
+  const visibleTodos = page.locator('.todo-list li');
+  await expect(visibleTodos).toHaveCount(1);
+  await expect(visibleTodos.first()).toContainText('Ship QA reps');
+
+
+  // Act + Assert: Completed filter shows only completed items
+  await page.getByRole('link', { name: 'Completed' }).click();
+
+  const completedTodos = page.locator('.todo-list li');
+  await expect(completedTodos).toHaveCount(1);
+  await expect(completedTodos.first()).toContainText('Learn Playwright');
+
+
+  // Act + Assert: All filter shows both
+  await page.getByRole('link', { name: 'All' }).click();
+
+  const allTodos = page.locator('.todo-list li');
+  await expect(allTodos).toHaveCount(2);
+  await expect(allTodos).toContainText(['Learn Playwright', 'Ship QA reps']);
+});
