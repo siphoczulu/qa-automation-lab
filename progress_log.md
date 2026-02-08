@@ -224,3 +224,25 @@ package-lock.json is critical for consistency across machines
 - Practice explaining API vs UI test coverage out loud (interview-style)
 - Add one more UI assertion that validates derived state (filters or counts)
 - Keep daily QA reps short, focused, and proof-driven
+
+## Feb 8, 2026 — UI Filtering Coverage ✅
+
+### What I shipped
+- Added UI regression test for TodoMVC filtering (Active / Completed / All)
+- Diagnosed and fixed a false assumption about visibility vs DOM removal
+- Stabilized assertions using item counts and content instead of visibility
+
+### Proof
+- Local run: 6 tests passing (UI + API)
+- Filter test validated across all views
+- CI: GREEN
+
+### Lesson learned
+- UI filtering doesn’t always mean “hidden” — often items are removed from the DOM.
+- `toHaveCount()` is safer than `not.toBeVisible()` when lists are filtered.
+- Debugging failures teaches more than green runs.
+
+### Next targets
+- Add one flaky-hardening improvement (destroy button visibility wait)
+- Introduce a small Page Object for Todo actions
+- Keep CI green with one focused test per session
