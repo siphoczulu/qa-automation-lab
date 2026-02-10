@@ -127,10 +127,12 @@ test('Given mixed todos, when a user filters Active/Completed/All, then only mat
   await expect(completedTodos.first()).toContainText('Learn Playwright');
 
 
-  // Act + Assert: All filter shows both
+  // Act + Assert: All filter shows both items
   await page.getByRole('link', { name: 'All' }).click();
 
   const allTodos = page.locator('.todo-list li');
   await expect(allTodos).toHaveCount(2);
-  await expect(allTodos).toContainText(['Learn Playwright', 'Ship QA reps']);
+
+  await expect(allTodos.nth(0)).toContainText('Learn Playwright');
+  await expect(allTodos.nth(1)).toContainText('Ship QA reps');
 });
