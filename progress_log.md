@@ -246,3 +246,20 @@ package-lock.json is critical for consistency across machines
 - Add one flaky-hardening improvement (destroy button visibility wait)
 - Introduce a small Page Object for Todo actions
 - Keep CI green with one focused test per session
+
+## Feb 10, 2026 — UI Test Hardening ✅
+
+### What I shipped
+- Hardened TodoMVC filter test to assert list count and item content instead of visibility
+
+### Proof
+- Local run: 6/6 tests passing
+- CI: green
+
+### Lesson learned
+- Visibility assertions can be flaky when UI hides elements via CSS
+- Counting rendered items + checking content is more reliable and closer to real user behavior
+
+### Next targets
+- Add negative UI test (empty input does not create todo)
+- Learn when to mock API vs hit real endpoints
