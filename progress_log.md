@@ -263,3 +263,29 @@ package-lock.json is critical for consistency across machines
 ### Next targets
 - Add negative UI test (empty input does not create todo)
 - Learn when to mock API vs hit real endpoints
+
+## March 24, 2026 — README Upgrade + QA Clarity 
+
+### What I shipped
+- Refactored README to reflect a real-world QA project structure
+- Clearly defined:
+  - UI (E2E) test role → user workflows
+  - API test role → backend contract validation
+  - CI role → preventing bad releases
+- Improved wording to be more aligned with industry terminology (E2E, API contract, CI pipeline)
+
+### Proof
+- Updated README.md with:
+  - Testing strategy section
+  - Clear project overview
+  - Professional structure and terminology
+- Repo now presents as a portfolio-ready QA project
+
+### Key insights
+- QA is not just writing tests — it's designing a **layered testing strategy**
+- UI tests protect user experience, API tests protect system correctness
+- CI acts as a **quality gate** that enforces trust in the system
+
+### Outcome
+- Transitioned from “learning QA tools” to **understanding QA engineering**
+- Improved ability to explain the purpose of my tests in real-world terms
