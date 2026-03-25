@@ -289,3 +289,23 @@ package-lock.json is critical for consistency across machines
 ### Outcome
 - Transitioned from “learning QA tools” to **understanding QA engineering**
 - Improved ability to explain the purpose of my tests in real-world terms
+
+## March 25, 2026 — Negative UI Testing Added
+
+### What I shipped
+- Added a negative UI test to verify that empty todo input does not create a new item
+- Recovered the Playwright browser environment when missing browser binaries blocked UI execution
+- Verified the full suite passes again locally and in CI
+
+### Proof
+- Local run: all tests passing
+- GitHub Actions: **GREEN**
+
+### Lesson learned
+- Negative tests are important because they verify the system rejects invalid user behavior correctly
+- Not every failure is caused by test logic; sometimes the environment itself is the issue
+- If API tests pass but UI tests fail with missing executable errors, the Playwright browser installation is the likely problem
+
+### Next targets
+- Add another negative or edge-case UI test
+- Continue improving confidence in distinguishing logic failures from environment failures
