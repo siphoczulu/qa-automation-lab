@@ -136,3 +136,23 @@ test('Given mixed todos, when a user filters Active/Completed/All, then only mat
   await expect(allTodos.nth(0)).toContainText('Learn Playwright');
   await expect(allTodos.nth(1)).toContainText('Ship QA reps');
 });
+
+/**
+ * User story:
+ * - user tries to add an empty todo
+ * - no todo is created
+ * - counter does not appear
+ */
+test('Given an empty input, when a user presses Enter, then no todo is created', async ({ page }) => {
+  const todoInput = page.getByPlaceholder('What needs to be done?');
+
+  // Act: try to add an empty todo (only spaces)
+  await todoInput.fill('   ');
+  await todoInput.press('Enter');
+  // Assert: no items should be added to the list
+  const todos = page.locator('.todo-list li');
+  await expect(todos).toHaveCount(0);
+  // Assert (extra): the counter should not be visible when there are no todos
+  const counter = page.locator('.todo-count');
+  await expect(counter).not.toBeVisible();
+});
