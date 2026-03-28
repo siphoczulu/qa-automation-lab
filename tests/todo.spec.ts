@@ -156,3 +156,20 @@ test('Given an empty input, when a user presses Enter, then no todo is created',
   const counter = page.locator('.todo-count');
   await expect(counter).not.toBeVisible();
 });
+
+/**
+ * User story:
+ * - user adds two todos
+ * - user completes one
+ * - counter updates to show only one item left
+ */
+test('Given two todos, when one is completed, then the counter shows one item left', async ({ page }) => {
+  await addTodo(page, 'Learn Playwright');
+  await addTodo(page, 'Ship QA reps');
+  // Act: complete the "Learn Playwright" item
+  const learnItem = page.locator('.todo-list li', { hasText: 'Learn Playwright' });
+  await learnItem.locator('input.toggle').check();
+  // Assert: the counter should update to show "1 item left"
+  const counter = page.locator('.todo-count');
+  await expect(counter).toHaveText('1 item left');
+});
