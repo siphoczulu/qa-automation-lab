@@ -309,3 +309,22 @@ package-lock.json is critical for consistency across machines
 ### Next targets
 - Add another negative or edge-case UI test
 - Continue improving confidence in distinguishing logic failures from environment failures
+
+## March 28, 2026 — Counter State Coverage 
+
+### What I shipped
+- Added a UI test to verify that the todo counter updates correctly after completing one item
+- Strengthened coverage around derived UI state, not just direct user actions
+
+### Proof
+- Local run: full test suite passing
+- New test validates that completing one of two todos updates the counter to `1 item left`
+
+### Lesson learned
+- Good UI tests do not only verify clicks and visible changes
+- They also verify summary state and business logic shown to the user
+- Small tests can add high-value regression coverage when they check the right thing
+
+### Next targets
+- Add another edge-case UI test around duplicate or trimmed input
+- Continue building confidence in testing derived state through the UI
