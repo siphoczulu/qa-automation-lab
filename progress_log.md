@@ -328,3 +328,23 @@ package-lock.json is critical for consistency across machines
 ### Next targets
 - Add another edge-case UI test around duplicate or trimmed input
 - Continue building confidence in testing derived state through the UI
+
+## March 29, 2026 — Trimmed Input Edge Case
+
+### What I shipped
+- Added a UI edge-case test to verify that todo input with extra spaces is trimmed correctly
+- Strengthened the suite by covering imperfect but realistic user input
+
+### Proof
+- Local run: full test suite passing
+- GitHub Actions: **GREEN**
+- New test confirms that adding `   Learn Playwright   ` results in a single todo with cleaned text
+
+### Lesson learned
+- Good QA tests should cover realistic user behavior, not just ideal inputs
+- Edge-case tests add high-value coverage because they validate how the product handles messy input
+- A small test can still be meaningful when it protects business behavior
+
+### Next targets
+- Add another edge-case UI test (duplicate input or toggle/counter interaction)
+- Keep building confidence around product assumptions vs actual behavior
