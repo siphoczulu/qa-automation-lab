@@ -173,3 +173,16 @@ test('Given two todos, when one is completed, then the counter shows one item le
   const counter = page.locator('.todo-count');
   await expect(counter).toHaveText('1 item left');
 });
+/**
+ * User story:
+ * - user enters a todo with extra spaces
+ * - app trims the input
+ * - only the cleaned todo text is shown
+ */
+test('Given input with extra spaces, when a user adds a todo, then the text is trimmed', async ({ page }) => {
+  await addTodo(page, '   Learn Playwright   ');
+  // Assert: the todo should be added with trimmed text (no leading/trailing spaces)
+  const todos = page.locator('.todo-list li');
+  await expect(todos).toHaveCount(1);
+  await expect(todos.first()).toContainText('Learn Playwright');
+});
