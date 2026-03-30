@@ -173,6 +173,7 @@ test('Given two todos, when one is completed, then the counter shows one item le
   const counter = page.locator('.todo-count');
   await expect(counter).toHaveText('1 item left');
 });
+
 /**
  * User story:
  * - user enters a todo with extra spaces
@@ -185,4 +186,30 @@ test('Given input with extra spaces, when a user adds a todo, then the text is t
   const todos = page.locator('.todo-list li');
   await expect(todos).toHaveCount(1);
   await expect(todos.first()).toContainText('Learn Playwright');
+});
+
+/**
+ * User story:
+ * - user adds two todos
+ * - user completes one
+ * - user clears completed items
+ * - only the active todo remains
+ */
+test('Given completed todos, when a user clears completed, then only active todos remain', async ({ page }) => {
+  await addTodo(page, 'Learn Playwright');
+  await addTodo(page, 'Ship QA reps');
+
+  const learnItem = page.locator('.todo-list li', { hasText: 'Learn Playwright' });
+  await learnItem.locator('input.toggle').check();
+
+  const clearCompleted = page.getByRole('button', { name: 'Clear completed' });
+  await expect(clearCompleted).toBeVisible();
+  await clearCompleted.click();
+
+  const todos = page.locator('.todo-list li');
+  await expect(todos).toHaveCount(1);
+  await expect(todos.first()).toContainText('Ship QA reps');
+
+  const counter = page.locator('.todo-count');
+  await expect(counter).toHaveText('1 item left');
 });
