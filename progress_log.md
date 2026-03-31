@@ -348,3 +348,24 @@ package-lock.json is critical for consistency across machines
 ### Next targets
 - Add another edge-case UI test (duplicate input or toggle/counter interaction)
 - Keep building confidence around product assumptions vs actual behavior
+
+## March 30, 2026 — Clear Completed Flow
+
+### What I shipped
+- Added a UI test for the “Clear completed” flow
+- Verified that completed todos can be removed while active todos remain
+- Asserted final list state and counter correctness after cleanup
+
+### Proof
+- Local run: full test suite passing
+- GitHub Actions: **GREEN**
+- New test confirms that clearing completed items leaves only active todos in the list
+
+### Lesson learned
+- Good UI tests validate complete flows, not just isolated actions
+- Cleanup actions like “Clear completed” are important because they combine multiple states: completion, conditional UI, and destructive behavior
+- Strong QA coverage checks both what disappears and what correctly remains
+
+### Next targets
+- Add another edge-case UI test (duplicate input or whitespace-only behavior review)
+- Keep strengthening the suite around realistic user behavior and state transitions
