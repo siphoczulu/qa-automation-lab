@@ -369,3 +369,21 @@ package-lock.json is critical for consistency across machines
 ### Next targets
 - Add another edge-case UI test (duplicate input or whitespace-only behavior review)
 - Keep strengthening the suite around realistic user behavior and state transitions
+
+## March 31, 2026 — Conditional UI State Assertion 
+
+### What I shipped
+- Strengthened the “Clear completed” UI test with an extra assertion
+- Verified that the “Clear completed” button disappears after completed items are removed
+
+### Proof
+- Local run: full test suite passing
+- GitHub Actions: **GREEN**
+
+### Lesson learned
+- Strong QA tests validate not just the main action, but also the surrounding UI state
+- Conditional UI elements should be checked both when they appear and when they are expected to disappear
+
+### Next targets
+- Add one more edge-case or state-transition UI test
+- Continue building the suite with small, high-value assertions
