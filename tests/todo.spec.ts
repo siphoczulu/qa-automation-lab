@@ -205,6 +205,7 @@ test('Given completed todos, when a user clears completed, then only active todo
   const clearCompleted = page.getByRole('button', { name: 'Clear completed' });
   await expect(clearCompleted).toBeVisible();
   await clearCompleted.click();
+  await expect(clearCompleted).not.toBeVisible();
 
   const todos = page.locator('.todo-list li');
   await expect(todos).toHaveCount(1);
