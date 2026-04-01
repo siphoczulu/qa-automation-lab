@@ -155,6 +155,9 @@ test('Given an empty input, when a user presses Enter, then no todo is created',
   // Assert (extra): the counter should not be visible when there are no todos
   const counter = page.locator('.todo-count');
   await expect(counter).not.toBeVisible();
+  
+  const mainSection = page.locator('.main');
+  await expect(mainSection).not.toBeVisible();
 });
 
 /**
