@@ -387,3 +387,21 @@ package-lock.json is critical for consistency across machines
 ### Next targets
 - Add one more edge-case or state-transition UI test
 - Continue building the suite with small, high-value assertions
+
+## April 1, 2026 — Stronger Negative UI Coverage
+
+### What I shipped
+- Strengthened the empty-input negative UI test with an additional assertion
+- Verified that the main todo section stays hidden when the user submits only spaces
+
+### Proof
+- Local run: full test suite passing
+- GitHub Actions: **GREEN**
+
+### Lesson learned
+- Negative tests are stronger when they validate both data state and UI state
+- It is not enough to assert that no item was created; the interface should also remain in the correct “empty” state
+
+### Next targets
+- Add one more high-value edge-case UI assertion
+- Continue strengthening negative and state-transition coverage with small focused reps
