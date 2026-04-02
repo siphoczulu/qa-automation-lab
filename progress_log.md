@@ -405,3 +405,24 @@ package-lock.json is critical for consistency across machines
 ### Next targets
 - Add one more high-value edge-case UI assertion
 - Continue strengthening negative and state-transition coverage with small focused reps
+
+## April 2, 2026 — Reversible State Coverage 
+
+### What I shipped
+- Added a UI test to verify that a completed todo can be marked active again
+- Validated that the counter updates correctly when state is reversed
+
+### Proof
+- Local run: full test suite passing
+- GitHub Actions: **GREEN**
+- New test confirms that completing one of two todos changes the counter to `1 item left`, and unchecking it changes the counter back to `2 items left`
+
+### Lesson learned
+- Good QA coverage should include reversible state transitions, not just one-way actions
+- Testing that a system can return to a correct previous state is just as important as testing the initial change
+- Counter assertions are useful because they validate visible business logic, not just UI clicks
+
+### Next targets
+- Shift from only lab reps into QA discipline reps
+- Learn and classify testing types (smoke, regression, sanity, functional, non-functional)
+- Keep the lab alive while starting broader QA skill building
