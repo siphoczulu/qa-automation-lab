@@ -217,3 +217,30 @@ test('Given completed todos, when a user clears completed, then only active todo
   const counter = page.locator('.todo-count');
   await expect(counter).toHaveText('1 item left');
 });
+
+/**
+ * User story:
+ * - user adds two todos
+ * - user completes one
+ * - user marks it active again
+ * - counter returns to two items left
+ */
+test('Given a completed todo, when a user marks it active again, then the counter updates correctly', async ({ page }) => {
+  await addTodo(page, 'Learn Playwright');
+  await addTodo(page, 'Ship QA reps');
+
+  const learnItem = page.locator('.todo-list li', { hasText: 'Learn Playwright' });
+  const toggle = learnItem.locator('input.toggle');
+
+  // Complete one item
+  await toggle.check();
+  await expect(learnItem).toHaveClass(/completed/);
+
+  const counter = page.locator('.todo-count');
+  await expect(counter).toHaveText('1 item left');
+
+  // Mark it active again
+  await toggle.uncheck();
+  await expect(learnItem).not.toHaveClass(/completed/);
+  await expect(counter).toHaveText('2 items left');
+});
