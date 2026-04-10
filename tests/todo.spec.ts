@@ -238,9 +238,14 @@ test('Given a completed todo, when a user marks it active again, then the counte
 
   const counter = page.locator('.todo-count');
   await expect(counter).toHaveText('1 item left');
+  // Assert: "Clear completed" button should be visible when there are completed items
+  const clearCompleted = page.getByRole('button', { name: 'Clear completed' });
+  await expect(clearCompleted).toBeVisible();
 
   // Mark it active again
   await toggle.uncheck();
   await expect(learnItem).not.toHaveClass(/completed/);
   await expect(counter).toHaveText('2 items left');
+  // Assert: "Clear completed" button should disappear when there are no completed items
+  await expect(clearCompleted).not.toBeVisible();
 });

@@ -426,3 +426,22 @@ package-lock.json is critical for consistency across machines
 - Shift from only lab reps into QA discipline reps
 - Learn and classify testing types (smoke, regression, sanity, functional, non-functional)
 - Keep the lab alive while starting broader QA skill building
+
+## April 10, 2026 — QA Foundations + Small Hardening
+
+### What I shipped
+- Added a QA foundations document to connect my repo work to broader QA practice
+- Strengthened a reversible-state UI test with an additional conditional UI assertion
+
+### Proof
+- New docs file: `docs/qa-foundations.md`
+- Local run: full test suite passing
+
+### Lesson learned
+- My lab is Phase 1, not the whole QA journey
+- Small assertions can still add valuable regression coverage when they verify conditional UI state
+
+### Next targets
+- Learn smoke vs regression vs sanity testing
+- Practice test case design outside the repo
+- Keep the lab alive with smaller maintenance reps
