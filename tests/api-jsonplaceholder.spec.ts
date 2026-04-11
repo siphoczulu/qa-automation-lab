@@ -29,3 +29,27 @@ test('GET /posts/999999 returns 404', async ({ request }) => {
   // Assert: the API should respond honestly
   expect(response.status()).toBe(404);
 });
+
+test('POST /posts returns a created post payload', async ({ request }) => {
+  const payload = {
+    title: 'QA portfolio post',
+    body: 'Testing write operation coverage',
+    userId: 1,
+  };
+
+  const response = await request.post('https://jsonplaceholder.typicode.com/posts', {
+    data: payload,
+  });
+
+  expect(response.status()).toBe(201);
+  expect(response.headers()['content-type']).toContain('application/json');
+
+  const responseBody = await response.json();
+
+  expect(responseBody).toEqual(
+    expect.objectContaining({
+      ...payload,
+      id: expect.any(Number),
+    })
+  );
+});
