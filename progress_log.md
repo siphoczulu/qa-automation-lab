@@ -445,3 +445,25 @@ package-lock.json is critical for consistency across machines
 - Learn smoke vs regression vs sanity testing
 - Practice test case design outside the repo
 - Keep the lab alive with smaller maintenance reps
+
+## April 11, 2026 — API Update Coverage
+
+### What I shipped
+- Added API coverage for `PATCH /posts/1`
+- Expanded the API suite beyond read-only and create operations
+- Updated README to reflect stronger API coverage
+
+### Proof
+- API test suite passing
+- Full suite passing
+- CI: **GREEN**
+
+### Lesson learned
+- Strong API coverage should include update behavior, not just read and create operations
+- Good API tests validate status codes, headers, and returned payload shape together
+- Small API reps can meaningfully improve portfolio depth
+
+### Next targets
+- Add DELETE coverage
+- Continue expanding QA artifacts
+- Keep balancing automation reps with QA strategy/documentation reps
