@@ -49,7 +49,9 @@ The UI suite currently covers core TodoMVC flows such as:
 ### API Coverage
 The API suite currently covers:
 
-- positive response validation
+- GET succes validation
+- POST creation validation
+- PATCH update validation
 - negative case validation (`404`)
 - schema-style assertions for response shape and types
 

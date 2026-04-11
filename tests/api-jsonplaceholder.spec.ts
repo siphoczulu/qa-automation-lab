@@ -52,3 +52,28 @@ test('POST /posts returns a created post payload', async ({ request }) => {
     })
   );
 });
+
+test('PATCH /posts/1 returns an updated post payload', async ({ request }) => {
+  const patchPayload = {
+    title: 'Updated QA portfolio title',
+  };
+
+  const response = await request.patch(
+    'https://jsonplaceholder.typicode.com/posts/1',
+    {
+      data: patchPayload,
+    }
+  );
+
+  expect(response.status()).toBe(200);
+  expect(response.headers()['content-type']).toContain('application/json');
+
+  const responseBody = await response.json();
+
+  expect(responseBody).toEqual(
+    expect.objectContaining({
+      id: 1,
+      title: patchPayload.title,
+    })
+  );
+});
