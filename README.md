@@ -37,6 +37,19 @@ Its value is in demonstrating core automation habits, QA thinking, and release-p
 
 ---
 
+## Skills Demonstrated
+
+- Playwright UI automation
+- API request/response validation
+- Negative testing
+- Regression-focused test design
+- State-based UI assertions
+- CI integration with GitHub Actions
+- Failure debugging with reports, screenshots, video, and trace
+- QA documentation (strategy, bug reports, test cases)
+
+---
+
 ## Tech Stack
 
 - **Playwright** — UI / End-to-End testing
@@ -64,7 +77,7 @@ The UI suite currently covers core TodoMVC flows such as:
 ### API Coverage
 The API suite currently covers:
 
-- GET succes validation
+- GET success validation
 - POST creation validation
 - PATCH update validation
 - negative case validation (`404`)
