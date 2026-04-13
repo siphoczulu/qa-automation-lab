@@ -1,6 +1,6 @@
 # QA Automation Lab
 
-Flagship QA automation portfolio project built with Playwright, API testing, and GitHub Actions CI.
+QA automation foundations project built with Playwright, API testing, and GitHub Actions CI.
 
 This repository demonstrates how I design, run, and maintain a practical automated test suite that protects user workflows, validates API contracts, and helps prevent bad releases through CI.
 
@@ -19,6 +19,21 @@ The goal is not just to “write tests,” but to demonstrate core QA engineerin
 - state-transition testing
 - CI quality gates
 - debugging and test hardening
+
+---
+
+## What This Project Proves
+
+This repository is designed to demonstrate strong QA automation foundations, including:
+
+- readable Playwright UI tests
+- API request/response validation
+- negative and state-based test coverage
+- CI integration with debugging artifacts
+- disciplined incremental improvement over time
+
+This project is intentionally positioned as a **foundations repo**, not a full product-scale QA system.
+Its value is in demonstrating core automation habits, QA thinking, and release-protection basics.
 
 ---
 
@@ -201,6 +216,22 @@ Planned next upgrades include:
 - clearer smoke vs regression tagging
 - broader QA portfolio packaging
 - interview-ready QA documentation and examples
+
+---
+
+## Current Limitations
+
+This project uses TodoMVC and JSONPlaceholder as learning targets, which makes it strong for fundamentals but limited as proof of full production readiness.
+
+Current limitations include:
+
+- demo application scope
+- external hosted dependencies
+- lightweight API complexity
+- limited suite architecture compared to a larger real-world product
+- no auth, permissions, or test data management layer yet
+
+The next step beyond this repo is to build a more realistic product-focused QA project with broader workflows, stronger API depth, and more client-style QA outputs.
 
 ---
 
