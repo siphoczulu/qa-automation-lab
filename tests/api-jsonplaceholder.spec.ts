@@ -77,3 +77,16 @@ test('PATCH /posts/1 returns an updated post payload', async ({ request }) => {
     })
   );
 });
+
+test('DELETE /posts/1 returns a successful delete response', async ({ request }) => {
+  const response = await request.delete(
+    'https://jsonplaceholder.typicode.com/posts/1'
+  );
+
+  expect(response.status()).toBe(200);
+  expect(response.headers()['content-type']).toContain('application/json');
+
+  const responseBody = await response.json();
+
+  expect(responseBody).toEqual({});
+});
