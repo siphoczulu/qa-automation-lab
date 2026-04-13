@@ -151,6 +151,16 @@ This helps simulate how QA automation protects releases in a real team environme
 
 ---
 
+## Visual Proof
+
+### Passing Playwright HTML Report
+![Passing Playwright HTML Report](assets/playwright-report-green.png)
+
+### Green GitHub Actions Run
+![Green GitHub Actions Run](assets/ci-green-run.png)
+
+---
+
 ## Reporting / Debugging
 
 The project supports:
