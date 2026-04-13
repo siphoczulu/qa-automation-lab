@@ -248,6 +248,21 @@ The next step beyond this repo is to build a more realistic product-focused QA p
 
 ---
 
+## Next Project Focus
+
+The next QA portfolio project will build on these foundations and focus on a more realistic product flow, including:
+
+- authentication and protected routes
+- richer form validation
+- stronger API depth beyond demo endpoints
+- more realistic business workflows
+- broader QA artifacts tied to a client-style deliverable
+
+This repository is intentionally the foundations project.
+The next project will focus on proving product-minded QA execution at a higher level.
+
+---
+
 ## Supporting QA Documentation
 
 Additional QA-focused documentation lives in:
