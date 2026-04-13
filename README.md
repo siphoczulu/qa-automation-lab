@@ -1,4 +1,5 @@
 # QA Automation Lab
+[![Playwright Tests](https://github.com/siphoczulu/qa-automation-lab/actions/workflows/tests.yml/badge.svg)](https://github.com/siphoczulu/qa-automation-lab/actions/workflows/tests.yml)
 
 QA automation foundations project built with Playwright, API testing, and GitHub Actions CI.
 
