@@ -81,6 +81,7 @@ The API suite currently covers:
 - GET success validation
 - POST creation validation
 - PATCH update validation
+- DELETE success validation
 - negative case validation (`404`)
 - schema-style assertions for response shape and types
 
@@ -115,7 +116,9 @@ Examples in this repo:
 ```text
 qa-automation-lab/
 ├── .github/workflows/        # GitHub Actions CI workflow
+├── assets/                   # README screenshots and visual proof
 ├── docs/                     # QA concept and strategy notes
+├── qa-artifacts/             # Test strategy, test cases, bug reports, risk analysis
 ├── tests/                    # Playwright UI and API test files
 ├── test-results/             # Raw artifacts from test runs
 ├── playwright-report/        # Human-readable HTML report
@@ -235,11 +238,11 @@ This repo demonstrates that I can:
 
 Planned next upgrades include:
 
-- stronger API coverage (POST / PUT / PATCH / DELETE)
-- more QA artifacts (bug reports, test cases, test strategy docs)
-- clearer smoke vs regression tagging
-- broader QA portfolio packaging
-- interview-ready QA documentation and examples
+- building a second, more realistic product-focused QA project
+- adding stronger API scenarios with auth, validation, and test data handling
+- introducing clearer smoke vs regression tagging in future suites
+- applying lightweight page objects or fixtures where they improve maintainability
+- expanding client-style QA deliverables in the next project
 
 ---
 
@@ -279,5 +282,9 @@ The next project will focus on proving product-minded QA execution at a higher l
 Additional QA-focused documentation lives in:
 
 - `docs/qa-foundations.md`
+- `qa-artifacts/test-strategy/`
+- `qa-artifacts/test-cases/`
+- `qa-artifacts/bug-reports/`
+- `qa-artifacts/risk-analysis/`
 
-More QA artifacts will be added under a dedicated `qa-artifacts/` structure.
+These artifacts show testing strategy, manual test cases, sample bug reports, and risk analysis for the current foundations project.
